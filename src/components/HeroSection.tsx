@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { Hero3DScene } from '@/components/Hero3DScene';
 import { ArrowDown } from 'lucide-react';
+import heroImage from '@/assets/hero-produce.jpg';
 
 export function HeroSection() {
   const scrollToProducts = () => {
@@ -12,16 +12,16 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col gradient-mesh overflow-hidden">
+    <header className="relative min-h-screen flex flex-col gradient-mesh overflow-hidden">
       {/* Navigation */}
-      <nav className="relative z-10 py-6">
+      <nav className="relative z-10 py-6" aria-label="Main navigation">
         <div className="premium-container flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2" aria-label="FreshFarms Home">
             <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
               <span className="text-primary-foreground font-display font-bold text-lg">FF</span>
             </div>
             <span className="font-display font-semibold text-xl text-foreground">FreshFarms</span>
-          </div>
+          </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="#products" className="text-muted-foreground hover:text-foreground transition-colors">Products</a>
             <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
@@ -41,7 +41,7 @@ export function HeroSection() {
             <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full">
-                  <span className="w-2 h-2 bg-fresh-green rounded-full animate-pulse"></span>
+                  <span className="w-2 h-2 bg-fresh-green rounded-full animate-pulse" aria-hidden="true"></span>
                   <span className="text-sm text-muted-foreground font-medium">Export Quality Assured</span>
                 </div>
                 <h1 className="premium-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
@@ -82,9 +82,18 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* 3D Scene */}
+            {/* Hero Image */}
             <div className="order-1 lg:order-2">
-              <Hero3DScene />
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-fresh-green/20 to-fresh-orange/20 rounded-3xl blur-3xl" aria-hidden="true"></div>
+                <img 
+                  src={heroImage} 
+                  alt="Fresh colorful vegetables and fruits including tomatoes, peppers, and leafy greens from Indian farms"
+                  className="relative rounded-3xl shadow-large w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -95,10 +104,11 @@ export function HeroSection() {
         <button
           onClick={scrollToProducts}
           className="p-3 rounded-full bg-secondary hover:bg-secondary/80 transition-colors"
+          aria-label="Scroll to products"
         >
-          <ArrowDown className="w-5 h-5 text-foreground" />
+          <ArrowDown className="w-5 h-5 text-foreground" aria-hidden="true" />
         </button>
       </div>
-    </section>
+    </header>
   );
 }
