@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 import heroImage from '@/assets/hero-produce.jpg';
+import onionLogo from '@/assets/onion-logo.png';
 
 export function HeroSection() {
   const scrollToProducts = () => {
@@ -17,9 +18,11 @@ export function HeroSection() {
       <nav className="relative z-10 py-6" aria-label="Main navigation">
         <div className="premium-container flex items-center justify-between">
           <a href="/" className="flex items-center gap-2" aria-label="FreshFarms Home">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <span className="text-primary-foreground font-display font-bold text-lg">FF</span>
-            </div>
+            <img
+              src={onionLogo}
+              alt="FreshFarms Onion Logo"
+              className="w-10 h-10 object-contain"
+            />
             <span className="font-display font-semibold text-xl text-foreground">FreshFarms</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
@@ -86,8 +89,8 @@ export function HeroSection() {
             <div className="order-1 lg:order-2">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-fresh-green/20 to-fresh-orange/20 rounded-3xl blur-3xl" aria-hidden="true"></div>
-                <img 
-                  src={heroImage} 
+                <img
+                  src={heroImage}
                   alt="Fresh colorful vegetables and fruits including tomatoes, peppers, and leafy greens from Indian farms"
                   className="relative rounded-3xl shadow-large w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
                   loading="eager"
